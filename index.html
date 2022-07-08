@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validator</title>
+  <link rel="stylesheet" href="base.css">
+</head>
+
+<body>
+  <div class="container">
+    <form action="" method="POST" id="my-form" class="form">
+      <h1 class="form-ttl">Sign In User</h1>
+      <p class="form-txt">Learn programing together!</p>
+      <div class="form-group">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" id="fullName" name="fullName" rule="required" class="form-input" value="" placeholder="Binh Dev">
+        <span class="form-message"></span>
+      </div>
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" id="email" name="email" rule="required|email" class="form-input" value="" placeholder="binh@gmail.com">
+        <span class="form-message"></span>
+      </div>
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" name="password" rule="required|min:6" class="form-input" value="" placeholder="enter your password">
+        <span class="form-message"></span>
+      </div>
+      <div class="form-group">
+        <label for="re-password" class="form-label">Re-Password</label>
+        <input type="re-password" id="re-password" name="re-password" rule="required|confirmed" class="form-input" value="" placeholder="enter your password">
+        <span class="form-message"></span>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="form-btn">Sign In</button>
+      </div>
+    </form>
+  </div>
+  <script src="common.js"></script>
+  <script>
+    var form = new Validator('#my-form');
+    form.onSubmit = function (data) {
+      console.log(data);
+    }
+  </script>
+</body>
+
+</html>
